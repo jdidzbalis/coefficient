@@ -1,0 +1,39 @@
+$baseFontFamily: Oxygen;
+@import url(http://fonts.googleapis.com/css?family=Oxygen);
+
+$navbarBackgroundHighlight: white;
+$navbarBackground: white;
+$navbarHeight: 60px;
+
+@import 'bootstrap';
+
+@import 'bootstrap-responsive';
+
+body{
+    padding-top: 61px;
+}
+
+.navbar-inner{
+    @include box-shadow(none !important);
+
+}
+
+.navbar .brand {
+	padding-top: 10px;
+}
+
+.hero-unit {
+	background-color: #99F600;
+	text-align: center;
+
+}
+
+
+.footer{
+    margin-top: 50px;
+    color: $grayLight;
+    a{
+        color: $gray;
+    }
+    border-top: 4px #ffffff;
+}
