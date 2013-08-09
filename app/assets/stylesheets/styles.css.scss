@@ -13,9 +13,10 @@ body{
     padding-top: 61px;
 }
 
+
 .navbar-inner{
     @include box-shadow(none !important);
-
+    border: 0;
 }
 
 .navbar .brand {
@@ -23,9 +24,17 @@ body{
 }
 
 .hero-unit {
-	background-color: #99F600;
+	background-color: #333333;
 	text-align: center;
+	color: #ffffff;
+}
 
+.hero-unit h2 {
+	color: #99F600;
+}
+
+.thumbnails p{
+	color: #777;
 }
 
 

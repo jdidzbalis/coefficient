@@ -11,7 +11,7 @@
                 <div class="nav-collapse">
                     <ul class="nav">
                         <li>
-                            <%= link_to 'Get Started',  root_path %>
+                            <%= link_to 'How It Works',  howitworks_path %>
                         </li>
                          <li>    
                             <%= link_to 'Our Financing Solutions',  about_path %>
@@ -24,7 +24,13 @@
                         </li>
                     </ul>
                     <ul class="nav pull-right">
-                                <li><%= link_to 'Login',  '#' %></li>
+                        <% if user_signed_in? %>
+                            <li><%= link_to 'View Projects',  edit_user_registration_path %></li>
+                            <li><%= link_to 'Sign Out',  destroy_user_session_path, method: :delete %></li>
+                        <% else %>
+                            <li><%= link_to 'Register',  new_user_registration_path %></li>
+                            <li><%= link_to 'Sign In',  new_user_session_path %></li>
+                        <% end %>
                     </ul>
                 </div>
         </div>
