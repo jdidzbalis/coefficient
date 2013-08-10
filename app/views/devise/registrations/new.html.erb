@@ -1,17 +1,21 @@
+<div class="page-header">
+	<h2>Registration</h2>
+</div>
 
 <div class="row">
-	<div class="span3">
-		<div class="caption">
-				<h3>Why register?</h3>
-		</div>
+	<div class="span4">
+		<h3>Why register?</h3>
 		<p>
-			By creating an account with us, you'll be able to submit multiple projects for financing within your main account.</br> Providing your information will also allow us to contact you regarding the status of your projects.
+			1. Creating an account with us will allow you to submit multiple projects for evaluation, without having to register separately for each individual submission. This is particularly useful for facility managers and / or owners who oversee multiple facilities and may be interested in more than one project.
+		</p>
+		<p>
+			2. As we are an online service, as a registered member you will be able to sign into your account on our site and track the status of your submitted projects as they progress through the evaluation and financing process. All this information will be located in one easy and convenient location.
 		</p>
 	</div>
-
-	<div class="span9">
-		<h2>Register with Coefficient</h2>
-		<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { class: 'form-horizontal well form'}) do |f| %>
+	<div class="span8">
+		<h3>It's quick and easy</h3>
+		<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { class: 'form-horizontal well'}) do |f| %>
+		  
 		  <%= f.error_notification %>
 
 			<%= f.input :firstname, label: 'First Name' %>  
@@ -27,5 +31,8 @@
 		  </div>
 		  <%= render "devise/shared/links" %>
 		<% end %>
-	</div>
 
+	</div>
+</div>
+		
+		
