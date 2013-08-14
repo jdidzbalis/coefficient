@@ -11,13 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130810174356) do
+ActiveRecord::Schema.define(:version => 20130813212739) do
 
   create_table "projects", :force => true do |t|
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.string   "facilityname"
     t.integer  "user_id"
+    t.string   "audit_file_name"
+    t.string   "audit_content_type"
+    t.datetime "audit_updated_at"
+    t.string   "location_street"
+    t.integer  "location_number"
+    t.integer  "location_zip"
+    t.string   "location_state"
+    t.string   "facilitytype"
+    t.integer  "facilityenergyuse"
   end
 
   add_index "projects", ["user_id"], :name => "index_projects_on_user_id"

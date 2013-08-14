@@ -6,6 +6,7 @@
 	<div class="span6 offset3">
 		<div class="well">
 			<h4>Facility Name</h4><%= @project.facilityname %>
+			<%= link_to 'View', @project.audit.url(:original) %>
 		</div>
 	</div>
 </div>

@@ -6,19 +6,24 @@
     <thead>
       <tr>
         <th>Facility Name</th>
-        <th></th>
-        <th></th>
+        <th>Facility Type</th>
+        <th>Type of Project</th>
+        <th>Energy Audit</th>
+        <th>Status</th>
       </tr>
     </thead>
 
     <tbody>
       <% @projects.each do |project| %>
         <tr>
-          <td><%= project.facilityname %>
-          <td><%= link_to 'Show', project %></td>
+          <td><%= project.facilityname %></td>
+          <td><%= project.facilitytype %></td>
+          <td></td>
+          <td><%= link_to 'View', project.audit.url(:original) %></td>
+          <td></td>
             <% if current_user == project.user %>
-              <td><%= link_to 'Edit', edit_project_path(project) %></td>
-              <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Edit Project', edit_project_path(project) %></td>
+              <td><%= link_to 'Remove Project', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             <% end %>
         </tr>
       <% end %>
