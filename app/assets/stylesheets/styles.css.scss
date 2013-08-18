@@ -9,25 +9,43 @@ $navbarHeight: 60px;
 
 @import 'bootstrap-responsive';
 
-body{
-    padding-top: 61px;
+html, body{
+    height: 100%;
 }
 
+#wrap {
+    min-height: 100%;
+}
+
+ #main {
+    overflow: auto;
+    padding-bottom: 150px; 
+ }
 
 .navbar-inner{
     @include box-shadow(none !important);
-    border: 1px solid #99F600;
+    border: 0;
 }
 
 .navbar .brand {
 	padding-top: 10px;
 }
 
-.container-narrow {
-    max-width: 1170px;
-    margin-right: auto;
-    margin-left: auto;
-    display: block;
+.container {
+    max-width: 1080px;
+}
+
+.featurette {
+    margin-left: 30px;
+}
+
+.featurette img {
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.featurette-divider {
+    margin: 80px 0;
 }
 
 .main {
@@ -37,23 +55,36 @@ body{
 }
 
 .main h4 {
-    color: #666666;
-    margin-top: -10px;
+    color: #999999;
+    margin-top: -5px;
 }
 
 .span4 p {
     line-height: 200%;
+    color: #999999;
 }
 
-.container-narrow .span4 {
+.container .span4 {
     text-align: center;
 }
 
+.audit-upload {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    margin-left: 200px;
+}
 
 .btn-primary {
     background: #99F600;
-    color: #555555;
+    color: #fff;
     margin-top: 15px;
+    font-weight: bold;
+    text-shadow: 0;
+    border-color: 0;
+}
+
+.btn:hover {
+    background: #7BC600;
 }
 
 
@@ -62,11 +93,15 @@ body{
 }
 
 .footer{
-    margin-top: 50px;
+    position: relative;
+    margin-top: -150px;
+    height: 130px;
+    clear: both;
+    background: $gray;
     color: $grayLight;
     a{
-        color: $gray;
+        color: #99F600;
     }
-    border-top: 1px solid #99F600;
-    padding: 30px 0;
+    padding-top: 20px;
+    margin-top: 5px;
 }

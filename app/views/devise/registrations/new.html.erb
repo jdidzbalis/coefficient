@@ -2,36 +2,39 @@
 	<h2>Registration</h2>
 </div>
 
-<div class="row">
-	<div class="span4">
-		<h3>Why register?</h3>
-		<p>
-			1. Creating an account with us will allow you to submit multiple projects for evaluation, without having to register separately for each individual submission. This is particularly useful for facility managers and / or owners who oversee multiple facilities and may be interested in more than one project.
-		</p>
-		<p>
-			2. As we are an online service, as a registered member you will be able to sign into your account on our site and track the status of your submitted projects as they progress through the evaluation and financing process. All this information will be located in one easy and convenient location.
-		</p>
-	</div>
-	<div class="span8">
-		<h3>It's quick and easy</h3>
-		<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { class: 'form-horizontal well'}) do |f| %>
-		  
-		  <%= f.error_notification %>
+<div class="well">
+	<div class="row">
+		<div class="span4" style="text-align: left;">
+			<h3>Why register?</h3>
+			<p>
+				By creating an account, you will be able to submit multiple projects for evaluation without having to enter common contact information each time. This is particularly useful for facility managers or owners who oversee multiple facilities and may be interested in more than one efficiency project.
+			</p>
+			<p>
+				Also, as a registered member you will be able to sign into your account within this online platform and track the status of your submitted projects as they progress through the evaluation and financing process. All this information will be located in one easy and convenient location for you to track.
+			</p>
+		</div>
+		<div class="span6">
+			<h3>Get started today!</h3>
+			<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { class: 'form-horizontal'}) do |f| %>
+			  
+			  <%= f.error_notification %>
 
-			<%= f.input :firstname, label: 'First Name' %>  
+				<%= f.input :firstname, label: 'First Name' %>
+				<%= f.input :lastname, label: 'Last Name' %>  
+			  <%= f.input :email , label: 'Email Address', placeholder: 'user@domain.com' %>
+			  <%= f.input :phonenumber, label: 'Phone Number', placeholder: '310-555-1234' %>
+			  <%= f.input :company, label: 'Company', placeholder: 'Who do you work for?' %>
+			  <%= f.input :title, label: 'Job Title', placeholder: 'What do you do?' %>
+			  <%= f.input :password %>
+			  <%= f.input :password_confirmation %>
 
-		  <%= f.input :email %>
+			  <div class="form-actions">
+			  	<%= f.submit "Register", class: 'btn btn-primary' %>
+			  </div>
+			  
+			<% end %>
 
-		  <%= f.input :password %>
-
-		  <%= f.input :password_confirmation %>
-
-		  <div class="form-actions">
-		  	<%= f.submit "Register", class: 'button btn-primary' %>
-		  </div>
-		  <%= render "devise/shared/links" %>
-		<% end %>
-
+		</div>
 	</div>
 </div>
 		

@@ -4,7 +4,11 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = current_user.projects.all
+    if current_user.lender?
+      @projects = Project.all
+    else
+      @projects = current_user.projects.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -46,7 +50,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to @project }
+        format.html { redirect_to action: "index" }
         format.json { render json: @project, status: :created, location: @project }
       else
         format.html { render action: "new" }

@@ -6,7 +6,9 @@ Coefficient::Application.routes.draw do
 
   root :to => 'pages#home'
   get 'about' => 'pages#about'
-  get 'howitworks' => 'pages#howitworks'
+  get 'partners' => 'pages#partners'
   get 'submit' => 'pages#submit'
   get 'financing' => 'pages#financing'
+
+  match "user_root" => "projects#index"
 end
