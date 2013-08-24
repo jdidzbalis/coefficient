@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    if current_user.lender?
+    if current_user.user_lender?
       @projects = Project.all
     else
       @projects = current_user.projects.all

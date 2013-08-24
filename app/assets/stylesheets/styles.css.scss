@@ -5,6 +5,7 @@ $navbarBackgroundHighlight: white;
 $navbarBackground: white;
 $navbarHeight: 60px;
 
+
 @import 'bootstrap';
 
 @import 'bootstrap-responsive';
@@ -17,14 +18,14 @@ html, body{
     min-height: 100%;
 }
 
- #main {
+#main {
     overflow: auto;
     padding-bottom: 150px; 
- }
+}
 
 .navbar-inner{
     @include box-shadow(none !important);
-    border: 0;
+    border: 1px solid #eee;
 }
 
 .navbar .brand {
@@ -73,7 +74,7 @@ html, body{
 
 .audit-upload {
     margin-top: 20px;
-    margin-bottom: 40px;
+    padding-bottom: 40px;
     margin-left: 200px;
 }
 
