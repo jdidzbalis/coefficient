@@ -1,0 +1,37 @@
+<hr>
+<bold>
+	As a preferred lender, we want to provide access to all of the efficiency projects currently active on our platform. The below table summarizes these projects, and provides some high-level data with respect to project costs and savings. For more detailed information, see the details page of each project and review the energy audit provided. If you would like to speak with us about a specific project, click on a project's Contact Us link.
+</bold>
+<hr>
+<table class="table table-striped">
+  <thead>
+		<tr>
+				<th>ID</th>
+        <th>Facility</th>
+        <th>Business</th>
+        <th>Audit</th>
+        <th>Project Type</th>
+        <th>Capital Cost</th>
+        <th>Project Lifetime</th>
+        <th>Energy Savings</th>
+        <th>Cost Savings</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @projects.each do |project| %>
+		<tr>
+      <td><%= project.id %></td>
+      <td><%= project.facility_name %></td>
+      <td><%= project.facility_business %></td>
+      <td><%= link_to 'View', project.audit.url(:original) %></td>
+      <td><%= project.project_type %></td>
+      <td><%= number_to_currency(project.project_cost, :precision => 2) %></td>
+      <td><%= number_with_precision(project.project_equipmentlife, :precision => 0) %></td>
+      <td><%= number_to_currency(project.project_energysavings, :precision => 2) %></td>
+      <td><%= number_to_currency(project.project_costsavings, :precision => 2) %></td>
+      <td><%= link_to 'See Details', project %></td>
+      <td><%= link_to 'Contact', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  	</tr>
+  	<% end %>
+	</tbody>
+</table>

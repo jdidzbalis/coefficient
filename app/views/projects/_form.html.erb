@@ -4,41 +4,50 @@
 				<%= simple_form_for @project, :url => projects_path, :html => { :multipart => true, class: 'form-horizontal' } do |f| %>
   					
             <div class="page-header">
-  					 <h4>Facility Information</h4>
+  					   <h4>FACILITY INFORMATION</h4>
             </div>
 
-  					<%= f.input :facility_name, label: 'Facility Name' %>
-  					<%= f.input :facility_type, label: 'Facility Type', as: :radio_buttons, collection: [ "Commercial", "Industrial", "Residential", "Office"] %>
-            <%= f.input :facility_business, label: 'Business Type', as: :radio_buttons, collection: [ "Consumer Goods", "Manufacturing", "Services"] %>
-  					<%= f.input :facility_location_number, label: 'Street Number' %>
-  					<%= f.input :facility_location_street, label: 'Street Name' %>
-  					<%= f.input :facility_location_zip, label: 'ZIP Code' %>
-  					<%= f.input :facility_location_state, label: 'State', collection: ["AL", "AK", "AZ", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"] %>
+            <div class="form">
+    					<%= f.input :facility_name, label: 'Facility Name' %>
+    					<%= f.input :facility_type, label: 'Facility Type', as: :radio_buttons, collection: [ "Commercial", "Industrial", "Residential", "Office"] %>
+              <%= f.input :facility_business, label: 'Business Type', as: :radio_buttons, collection: [ "Consumer Goods", "Manufacturing", "Services"] %>
+    					<%= f.input :facility_location_address1, label: 'Address 1' %>
+    					<%= f.input :facility_location_address2, label: 'Address 2' %>
+    					<%= f.input :facility_location_zip, label: 'ZIP Code' %>
+    					<%= f.input :facility_location_state, label: 'State', collection: ["AL", "AK", "AZ", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"] %>
+            </div>
 
             <div class="page-header">
-  					 <h4>Facility Energy Use</h4>
+  					   <h4>FACILITY ENERGY USE</h4>
             </div>
-  					<%= f.input :facility_totalenergyuse, label: 'Annual Energy Use (kWh)', placeholder: 'Estimate, previous year' %>
-            <%= f.input :facility_energyprice, label: 'Cost of Energy ($/kWh)', placeholder: '0.10' %>
+
+            <div class="form">
+    					<%= f.input :facility_totalenergyuse, label: 'Annual Energy Use (kWh)', placeholder: 'Estimate, previous year' %>
+              <%= f.input :facility_energyprice, label: 'Cost of Energy ($/kWh)', placeholder: '0.10' %>
+            </div>
             
             <div class="page-header">
-  					 <h4>Project Information</h4>
+  					 <h4>PROJECT INFORMATION</h4>
             </div>
-            <%= f.input :project_type, label: 'Project Type', as: :radio_buttons, collection: [ "Interior Lighting", "Exterior Lighting", "HVAC", "Motors", "Pumps", "Air Handling"] %>
-            <%= f.input :project_technology, label: 'Project Technology', as: :string %>
-            <%= f.input :project_equipmentlife, label: 'Equipment Lifetime', as: :select, collection: 1..20 %>
-            <%= f.input :project_energysavings, label: 'Project Energy Savings' %>
-            <%= f.input :project_costsavings, label: 'Project Cost Savings' %>
-            <%= f.input :project_payback, label: 'Project Payback Period', as: :select, collection: 1..20 %>
-            <%= f.input :project_IRR, label: 'Project IRR', as: :select, collection: 1..20 %>
+
+            <div class="form">
+              <%= f.input :project_type, label: 'Project Type', as: :radio_buttons, collection: [ "Interior Lighting", "Exterior Lighting", "HVAC", "Motors", "Pumps", "Air Handling"] %>
+              <%= f.input :project_technology, label: 'Project Technology', as: :string, placeholder: 'Type of equipment installed' %>
+              <%= f.input :project_cost, label: 'Project Cost ($)' %>
+              <%= f.input :project_equipmentlife, label: 'Equipment Lifetime (yrs)', as: :select, collection: 1..20 %>
+              <%= f.input :project_energysavings, label: 'Energy Savings (kWh)', placeholder: 'As estimated in audit' %>
+              <%= f.input :project_costsavings, label: 'Annual Cost Savings ($)' %>
+              <%= f.input :project_payback, label: 'Payback Period (yrs)', as: :select, collection: 1..20 %>
+              <%= f.input :project_IRR, label: 'IRR (%)', as: :select, collection: 1..20 %>
+            </div>
 
             <div class="page-header">
-              <h4>Project Energy Audit</h4>
+              <h4>PROJECT ENERGY AUDIT</h4>
             </div>
   					<p>Please upload a .pdf copy of your facility energy audit. If you have not completed an audit, consult with one of our preferred energy audit partners here.</p>
   					
   					<%= f.file_field :audit, label: 'Upload Energy Audit', class: 'audit-upload' %></br>
-            <%= f.input :facility_auditconsultant, label: 'Audit Consultant', as: :string %>
+            <%= f.input :facility_auditconsultant, label: 'Consultant Name', as: :string %>
 
   					<%= f.submit "Submit Project", class: 'btn btn-primary', style: 'margin-left: 200px; margin-top: 40px;' %>
 

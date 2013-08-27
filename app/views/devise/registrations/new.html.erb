@@ -2,18 +2,21 @@
 	<h2>Registration</h2>
 </div>
 
-<div class="well">
-	<div class="row">
-		<div class="span4" style="text-align: left;">
-			<h3>Why register?</h3>
-			<p>
-				By creating an account, you will be able to submit multiple projects for evaluation without having to enter common contact information each time. This is particularly useful for facility managers or owners who oversee multiple facilities and may be interested in more than one efficiency project.
-			</p>
-			<p>
-				Also, as a registered member you will be able to sign into your account within this online platform and track the status of your submitted projects as they progress through the evaluation and financing process. All this information will be located in one easy and convenient location for you to track.
-			</p>
-		</div>
-		<div class="span6">
+<div class="row">
+	<div class="span6 offset3">
+		<h3>Why register?</h3>
+		<p>
+			By creating an account, you will be able to submit multiple projects for evaluation without having to enter common contact information each time. This is particularly useful for facility managers or owners who oversee multiple facilities and may be interested in more than one efficiency project.
+		</p>
+		<p>
+			Also, as a registered member you will be able to sign into your account within this online platform and track the status of your submitted projects as they progress through the evaluation and financing process. All this information will be located in one easy and convenient location for you to track.
+		</p>
+	</div>
+</div>
+<hr>
+<div class="row">
+	<div class="span6 offset3">
+		<div class="well">
 			<h3>Get started today!</h3>
 			<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { class: 'form-horizontal'}) do |f| %>
 			  
@@ -33,9 +36,9 @@
 			  </div>
 			  
 			<% end %>
-
 		</div>
 	</div>
 </div>
+
 		
 		

@@ -1,13 +1,53 @@
 <div class="page-header">
-	<h2><%= @project.facilityname %></h2>
+	<h2>Project details for <%= @project.facility_name %></h2>
 </div>
+
+<%= link_to '< Back to Projects', projects_path %>
 
 <div class="row">
 	<div class="span6 offset3">
 		<div class="well">
-			<h4>Status update for <%= @project.facilityname %></h4>
-			<p>Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+			<%= link_to 'View Energy Audit', @project.audit.url(:original), class: 'btn btn-info' %>
+			<table class="project_details">
+				<tr>
+					<th>Project ID:</th>
+					<td>Test</td>
+				</tr>
+				<tr>
+					<th>Facility Name:</th>
+					<td>Test</td>
+				</tr>
+				<tr>
+					<th>Total Annual Energy Use:</th>
+					<td>Test</td>
+				</tr>
+				<tr>
+					<th>Project Information 1:</th>
+					<td>Test</td>
+				</tr>
+				<tr>
+					<th>Project Information 2:</th>
+					<td>Test</td>
+				</tr>
+				<tr>
+					<th>Project Information 3:</th>
+					<td>Test</td>
+				</tr>
+				<tr>
+					<th>Project Information 4:</th>
+					<td>Test</td>
+				</tr>
+				<tr>
+					<th>Project Information 5:</th>
+					<td>Test</td>
+				</tr>
+				<tr>
+					<th>Project Information 6:</th>
+					<td>Test</td>
+				</tr>
+			</table>
 		</div>
 	</div>
 </div>
+
 

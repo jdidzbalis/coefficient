@@ -2,55 +2,33 @@
   <h2>Welcome, <%= current_user.user_firstname %></h2>
 </div>
 
+
+
 <div class="row">
   <div class="span11">
-    <div class="page-header">
+    <%= render 'projects/legend' %>
       <h3>Your Projects</h3>
-    </div>
-    <% if @projects.blank? %>
-      <div class="well" style="text-align: center;">
-        <h4>You currently do not have any active projects</h4>
-      </div>
-    <% else %>
-      <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Project ID</th>
-              <th>Facility Name</th>
-              <th>Project Type</th>
-              <th>Energy Audit</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <% @projects.each do |project| %>
-              <tr>
-                <td><%= project.id %></td>
-                <td><%= project.facilityname %></td>
-                <td><%= project.projecttype %></td>
-                <td><%= link_to 'View', project.audit.url(:original) %></td>
-                <td></td>
-                  <% if current_user == project.user %>
-                    <td><%= link_to 'See Details', project %></td>
-                    <td><%= link_to 'Cancel Project', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                  <% end %>
-              </tr>
-            <% end %>
-          </tbody>
-      </table>
-    <% end %>
+        <%= link_to 'Start A New Project >', new_project_path %>
+        <% if @projects.blank? %>
+          <div class="well" style="text-align: center;">
+            <h4>You currently do not have any active projects</h4>
+          </div>
+        <% else %>
+          <% if current_user.user_lender? %>
+            <%= render 'projects/lendertable' %>
+          <% else %>
+            <%= render 'projects/usertable' %>
+          <% end %>
+        <% end %>
   </div>
 </div>
 
 <div class="row">
   <div class="span11">
-    <div class="page-header">
       <h3>Your Profile</h3>
-    </div>
   </div>
 </div>
 
 <br />
 
-<%= link_to 'New Project', new_project_path %>
+

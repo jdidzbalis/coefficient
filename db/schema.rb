@@ -11,52 +11,56 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130818151659) do
+ActiveRecord::Schema.define(:version => 20130826183242) do
 
   create_table "projects", :force => true do |t|
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
-    t.string   "facilityname"
+    t.string   "project_status"
+    t.decimal  "project_IRR"
+    t.decimal  "project_payback"
+    t.decimal  "project_costsavings"
+    t.decimal  "project_energysavings"
+    t.decimal  "project_equipmentlife"
+    t.string   "project_technology"
+    t.text     "facility_auditconsultant"
+    t.text     "facility_business"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "facility_name"
     t.integer  "user_id"
     t.string   "audit_file_name"
     t.string   "audit_content_type"
     t.datetime "audit_updated_at"
-    t.string   "location_street"
-    t.integer  "location_number"
-    t.integer  "location_zip"
-    t.string   "location_state"
-    t.string   "facilitytype"
-    t.integer  "facilityenergyuse"
-    t.string   "projecttype"
-    t.decimal  "energyprice"
+    t.string   "facility_location_address1"
+    t.string   "facility_location_address2"
+    t.integer  "facility_location_zip"
+    t.string   "facility_location_state"
+    t.string   "facility_type"
+    t.integer  "facility_totalenergyuse"
+    t.string   "project_type"
+    t.decimal  "facility_energyprice"
     t.string   "energypurchase"
-    t.string   "status"
+    t.integer  "project_cost"
   end
 
-  add_index "projects", ["user_id"], :name => "index_projects_on_user_id"
-
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "",    :null => false
-    t.string   "encrypted_password",     :default => "",    :null => false
+    t.string   "email"
+    t.string   "encrypted_password"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0
+    t.integer  "sign_in_count"
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
-    t.string   "firstname"
-    t.boolean  "lender",                 :default => false, :null => false
-    t.string   "lastname"
-    t.string   "company"
-    t.string   "title"
-    t.string   "phonenumber"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "user_firstname"
+    t.boolean  "user_lender"
+    t.string   "user_lastname"
+    t.string   "user_company"
+    t.string   "user_title"
+    t.string   "user_phonenumber"
   end
-
-  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end

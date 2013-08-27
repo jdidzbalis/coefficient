@@ -20,16 +20,33 @@ html, body{
 
 #main {
     overflow: auto;
-    padding-bottom: 150px; 
+    padding-bottom: 110px; 
 }
 
-.navbar-inner{
+.navbar-inner {
     @include box-shadow(none !important);
-    border: 1px solid #eee;
+    border: 0px solid #eee;
 }
 
 .navbar .brand {
 	padding-top: 10px;
+}
+
+.navbar {
+    margin-top: 20px;
+}
+
+.highlight {
+    border: 2px solid #aaa;
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    margin-top: -2px;
+}
+
+.navbar .nav > li > a:hover {
+    color: #99F600;
 }
 
 .container {
@@ -37,23 +54,46 @@ html, body{
 }
 
 .featurette {
-    margin-left: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    display:block;
+    width: 800px;
 }
 
-.pull-right {
-    margin-left: 30px;
+.featurette-heading {
+    color: #99F600;
+    font-size: 30px;
+    font-weight: 100;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-.pull-left {
-    margin-right: 30px;
+.featurette-details {
+    font-size: 18px;
+    font-weight: 100;
+    color: #aaa;
+    text-align: center;
+    line-height: 30px;
+    margin-bottom: 30px;
+
+}
+
+.featurette-image {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
 .featurette-divider {
     margin: 80px 0;
 }
 
+.lead {
+    font-size: 18px;
+}
+
 .main {
-    padding: 150px 0;
+    padding: 110px 0;
     display: block;
 
 }
@@ -72,10 +112,32 @@ html, body{
     text-align: center;
 }
 
+.legend {
+    margin-top: 5px;
+}
+
 .audit-upload {
     margin-top: 20px;
     padding-bottom: 40px;
     margin-left: 200px;
+}
+
+.form {
+    margin-bottom: 60px;
+}
+
+.project_details th {
+    width: 200px;
+    text-align: right;
+}
+
+.project_details tr {
+    height: 50px;
+}
+
+.project_details td {
+    text-align: center;
+    width: 200px;
 }
 
 .btn-primary {
@@ -91,6 +153,18 @@ html, body{
     background: #7BC600;
 }
 
+.table {
+    height: 100px;
+}
+
+.table th {
+    text-align: center;
+}
+
+.table td {
+    vertical-align: middle;
+    text-align: center;
+}
 
 .thumbnails p{
 	color: #777;
@@ -98,7 +172,7 @@ html, body{
 
 .footer{
     position: relative;
-    margin-top: -150px;
+    margin-top: -110px;
     height: 130px;
     clear: both;
     background: $gray;
