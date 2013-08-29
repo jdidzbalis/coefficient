@@ -1,0 +1,29 @@
+<div class="page-header">
+  <h2>Submit a Project</h2>
+</div>
+
+<div class="row">
+  <div class="span6 offset3">
+    <div class="progress progress-success">
+      <div class="bar" style="width: 75%;"></div>
+    </div>
+
+    <div class="page-header">
+      <h4>Step 3: PROJECT INFORMATION</h4>
+    </div>
+
+    <div class="form">
+      <%= simple_form_for @project, :url => wizard_path, :html => { :multipart => true, class: 'form-horizontal' } do |f| %>
+      <%= f.input :project_type, label: 'Project Type', as: :radio_buttons, collection: [ "Interior Lighting", "Exterior Lighting", "HVAC", "Motors", "Pumps", "Air Handling"] %>
+      <%= f.input :project_technology, label: 'Project Technology', as: :string, placeholder: 'Type of equipment installed' %>
+      <%= f.input :project_cost, label: 'Project Cost ($)' %>
+      <%= f.input :project_equipmentlife, label: 'Equipment Lifetime (yrs)', as: :select, collection: 1..20 %>
+      <%= f.input :project_energysavings, label: 'Energy Savings (kWh)', placeholder: 'As estimated in audit' %>
+      <%= f.input :project_costsavings, label: 'Annual Cost Savings ($)' %>
+      <%= f.input :project_payback, label: 'Payback Period (yrs)', as: :select, collection: 1..20 %>
+      <%= f.input :project_IRR, label: 'IRR (%)', as: :select, collection: 1..20 %>
+      <%= f.submit "Continue", class: 'btn btn-primary', style: 'margin-left: 200px; margin-top: 40px;' %>
+      <% end %>
+    </div>
+  </div>
+</div>

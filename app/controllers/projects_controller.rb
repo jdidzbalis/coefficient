@@ -33,7 +33,7 @@ class ProjectsController < ApplicationController
     @project = current_user.projects.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html
       format.json { render json: @project }
     end
   end
@@ -50,7 +50,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to action: "index" }
+        format.html { redirect_to project_project_steps_path(:id => "add_energyuse", :project_id => @project.id) }
         format.json { render json: @project, status: :created, location: @project }
       else
         format.html { render action: "new" }

@@ -1,6 +1,8 @@
 Coefficient::Application.routes.draw do
-  resources :projects
-
+  resources :projects do
+  	resources :project_steps, controller: 'project_steps'
+  end
+  
 
   devise_for :users
 
