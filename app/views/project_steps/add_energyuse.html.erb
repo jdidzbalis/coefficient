@@ -4,19 +4,24 @@
 <div class="row">
 	<div class="span6 offset3">
 		<%= simple_form_for @project, :url => wizard_path, :html => { :multipart => true, class: 'form-horizontal' } do |f| %>
-
 			<div class="progress progress-success">
-              <div class="bar" style="width: 50%;"></div>
-            </div>
-
-  			<div class="page-header">
-   				<h4>Step 2: FACILITY ENERGY USE</h4>
-			</div>
-            <div class="form">
-    			<%= f.input :facility_totalenergyuse, label: 'Annual Energy Use (kWh)', placeholder: 'Estimate, previous year' %>
-              	<%= f.input :facility_energyprice, label: 'Cost of Energy ($/kWh)', placeholder: '0.10' %>
-            </div>
-  			<%= f.submit "Continue", class: 'btn btn-primary', style: 'margin-left: 200px; margin-top: 40px;' %>
+        <div class="bar" style="width: 50%;"></div>
+      </div>
+			<div class="row">
+        <div class="span4">
+          <div class="page-header">
+           <h4>Step 2: FACILITY ENERGY USE</h4>
+          </div>
+        </div>
+        <div class="span2">
+           <%= f.submit "Next >", class: 'btn btn-primary', style: "float: right;" %>
+        </div>
+      </div>
+      <div class="form well">
+  			<%= f.input :facility_totalenergyuse, label: 'Annual Energy Use (kWh)', placeholder: 'Estimate, previous year' %>
+      	<%= f.input :facility_energyprice, label: 'Cost of Energy ($/kWh)', placeholder: '0.10' %>
+      </div>
   		<% end %>
 	</div>
 </div>
+<hr>

@@ -3,17 +3,17 @@
 </div>
 
 <div class="row">
-	<div class="span6 offset3">
-		<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), html: { class: 'form-horizontal well form'}) do |f| %>
+	<div class="span6 offset4">
+		<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), html: { class: 'signin-form'}) do |f| %>
 		  
-		  <%= f.input :email %>
+		  <%= f.input :email, label: false, placeholder: 'Email Address' %>
 
-		  <%= f.input :password %>
+		  <%= f.input :password, label: false, placeholder: 'Password' %>
 
 		  <%= f.input :remember_me, as: :boolean %>
 
-		  <div class="form-actions">
-		  	<%= f.submit "Sign in", class: 'btn btn-primary' %>
+		  <div>
+		  	<%= f.submit "SIGN IN", class: 'btn btn-primary' %>
 		  </div>
 		  <%= render "devise/shared/links" %>
 		<% end %>

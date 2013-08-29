@@ -7,15 +7,16 @@
           <div class="bar" style="width: 100%;"></div>
         </div>
 		 <div class="page-header">
-		  <h4>PROJECT ENERGY AUDIT</h4>
+		  <h4>Step 4: PROJECT ENERGY AUDIT</h4>
 		</div>
 		<p>Please upload a .pdf copy of your facility energy audit. If you have not completed an audit, consult with one of our preferred energy audit partners here.</p>
-		<%= simple_form_for @project, :url => projects_path, :html => { :multipart => true, class: 'form-horizontal' } do |f| %>
+		<%= simple_form_for @project, :url => wizard_path, :html => { :multipart => true, class: 'form-horizontal well form' } do |f| %>
   					
 			<%= f.file_field :audit, label: 'Upload Energy Audit', class: 'audit-upload' %></br>
 			<%= f.input :facility_auditconsultant, label: 'Consultant Name', as: :string %>
 
-			<%= f.submit "Submit Project", class: 'btn btn-primary', style: 'margin-left: 200px; margin-top: 40px;' %>
+			<%= f.submit "SUBMIT PROJECT", class: 'btn btn-primary btn-large', style: 'margin-left: 160px;' %>
 		<% end %>
 	</div>
 </div>
+<hr>

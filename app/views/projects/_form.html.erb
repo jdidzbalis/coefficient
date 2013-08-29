@@ -5,25 +5,29 @@
             <div class="progress progress-success">
               <div class="bar" style="width: 25%;"></div>
             </div>
-
-            <div class="page-header">
-  					   <h4>Step 1: FACILITY INFORMATION</h4>
+            <div class="row">
+              <div class="span4">
+                <div class="page-header">
+    					   <h4>Step 1: FACILITY INFORMATION</h4>
+                </div>
+              </div>
+              <div class="span2">
+                 <%= f.submit "Next >", class: 'btn btn-primary', style: "float: right;" %>
+              </div>
+              
             </div>
             
-            <div class="form">
+            <div class="form well">
     					<%= f.input :facility_name, label: 'Facility Name' %>
-    					<%= f.input :facility_type, label: 'Facility Type', as: :radio_buttons, collection: [ "Commercial", "Industrial", "Residential", "Office"] %>
-              <%= f.input :facility_business, label: 'Business Type', as: :radio_buttons, collection: [ "Consumer Goods", "Manufacturing", "Services"] %>
+    					<%= f.input :facility_type, label: 'Facility Type', collection: [ "Commercial", "Industrial", "Residential", "Office"] %>
+              <%= f.input :facility_business, label: 'Business Type', collection: [ "Consumer Goods", "Manufacturing", "Services"] %>
     					<%= f.input :facility_location_address1, label: 'Address 1' %>
     					<%= f.input :facility_location_address2, label: 'Address 2' %>
     					<%= f.input :facility_location_zip, label: 'ZIP Code' %>
     					<%= f.input :facility_location_state, label: 'State', collection: ["AL", "AK", "AZ", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"] %>
             </div>
 
-      
-
-  					<%= f.submit "Continue", class: 'btn btn-primary', style: 'margin-left: 200px; margin-top: 40px;' %>
-
 				<% end %>
 	</div>
 </div>
+<hr>
