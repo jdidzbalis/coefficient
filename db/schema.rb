@@ -11,10 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130826183242) do
+ActiveRecord::Schema.define(:version => 20130831210855) do
 
   create_table "projects", :force => true do |t|
-    t.string   "project_status"
     t.decimal  "project_IRR"
     t.decimal  "project_payback"
     t.decimal  "project_costsavings"
@@ -40,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20130826183242) do
     t.decimal  "facility_energyprice"
     t.string   "energypurchase"
     t.integer  "project_cost"
+    t.string   "project_status",             :default => "Submitted"
   end
 
   create_table "users", :force => true do |t|

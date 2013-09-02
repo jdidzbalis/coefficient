@@ -2,33 +2,8 @@
   <h2>Welcome, <%= current_user.user_firstname %></h2>
 </div>
 
-
-
-<div class="row">
-  <div class="span11">
-    <%= render 'projects/legend' %>
-      <h3>Your Projects</h3>
-        <%= link_to 'Start A New Project >', new_project_path %>
-        <% if @projects.blank? %>
-          <div class="well" style="text-align: center;">
-            <h4>You currently do not have any active projects</h4>
-          </div>
-        <% else %>
-          <% if current_user.user_lender? %>
-            <%= render 'projects/lendertable' %>
-          <% else %>
-            <%= render 'projects/usertable' %>
-          <% end %>
-        <% end %>
-  </div>
-</div>
-
-<div class="row">
-  <div class="span11">
-      <h3>Your Profile</h3>
-  </div>
-</div>
-
-<br />
-
-
+<% if current_user.user_lender? %>
+  <%= render 'projects/lendertable' %>
+<% else %>
+  <%= render 'projects/usertable' %>
+<% end %>

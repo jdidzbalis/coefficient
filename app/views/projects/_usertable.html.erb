@@ -1,35 +1,72 @@
-<table class="table table-striped">
-  <thead>
-		<tr>
-			<th>STATUS</th>
-			<th>Project ID</th>
-			<th>Facility Name</th>
-			<th>Project Type</th>
-			<th>Energy Audit</th>
-		</tr>
-	</thead>
-	<tbody>
-		<% @projects.each do |project| %>
-			<tr>
-		    <% if project.project_status == "Submitted" %>
-		      <td><span class="label label-info"><%= project.project_status %></span></td>
-		    <% elsif project.project_status == "Preliminary Review" %>
-		      <td><span class="label label-warning"><%= project.project_status %></span></td>
-		    <% elsif project.project_status == "Risk Assessment" %>
-		      <td><span class="label label-important"><%= project.project_status %></span></td>
-		    <% elsif project.project_status == "Loan Finalizing" %>
-		      <td><span class="label label-success"><%= project.project_status %></span></td>
-		    <% end %>
-		    <td><%= project.id %></td>
-		    <td><%= project.facility_name %></td>
-		    <td><%= project.project_type %>
-		    <td><%= link_to 'View', project.audit.url(:original) %></td>
-		      <% if current_user == project.user %>
-		        <td><%= link_to 'See Details', project %></td>
-		        <td><%= link_to 'Cancel Project', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-		      <% end %>
-      
-	  	</tr>
-	  <% end %>
-	</tbody>
-</table>
+<div class="row">
+  <div class="span2">
+    <div class="tabbable">
+      <ul class="nav nav-list">
+        <li class="nav-header">YOUR PROJECTS</li>
+        <li class="active"><a href="#tab1" data-toggle="tab">Active Projects</a></li>
+        <li><a href="#tab2" data-toggle="tab">Completed Projects</a></li>
+        <li class="nav-header">ACCOUNT</li>
+        <li><a href="#tab3" data-toggle="tab">View Profile</a></li>
+        <li><a href="#tab4" data-toggle="tab">Messages</a></li>
+        <li><a href="#tab5" data-toggle="tab">Settings</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="span9">
+    <div class="tab-content">
+      <div class="tab-pane active" id="tab1">
+        <h3>Active Projects</h3>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Status</th>
+                <th>Facility Name</th>
+                <th>Project Type</th>
+                <th>Project Cost</th>
+                <th>View Audit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @projects.each do |project| %>
+                <tr>
+                   <% if project.project_status == "Submitted" %>
+                    <td><span class="label label-info"><%= project.project_status %></span></td>
+                  <% elsif project.project_status == "Preliminary Review" %>
+                    <td><span class="label label-warning"><%= project.project_status %></span></td>
+                  <% elsif project.project_status == "Risk Assessment" %>
+                    <td><span class="label label-important"><%= project.project_status %></span></td>
+                  <% elsif project.project_status == "Loan Finalizing" %>
+                    <td><span class="label label-success"><%= project.project_status %></span></td>
+                  <% end %>
+                  <td><%= project.facility_name %></td>
+                  <td><%= project.project_type %></td>
+                  <td><%= number_to_currency(project.project_cost, :precision => 2) %></td>
+                  <td><%= link_to 'View', project.audit.url(:original) %></td>
+                  <% if current_user == project.user %>
+                    <td><%= link_to 'See Details', project %></td>
+                    <td><%= link_to 'Cancel Project', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  <% end %>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+      </div>
+      <div class="tab-pane" id="tab2">
+        <h3>Completed Projects</h3>
+      </div>
+      <div class="tab-pane" id="tab3">
+        <h3>Your Profile</h3>
+      </div>
+      <div class="tab-pane" id="tab4">
+        <h3>Messages</h3>
+      </div>
+       <div class="tab-pane" id="tab5">
+        <h3>Settings</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br />
+
+
